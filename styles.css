@@ -64,6 +64,7 @@ header > h1 {
 .result {
     font-size: 40px;
     color: white;
+    display: none;
 }
 
 .result > p {
@@ -72,6 +73,27 @@ header > h1 {
     font-family: Asap, sans-serif;
 }
 
+.score-limit {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-family: 'Asap', sans-serif;
+  }
+  
+  .score-limit label {
+    margin-right: 10px;
+  }
+  
+  .score-limit select {
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  
 .choices {
     margin-top: 50px;
     text-align: center;
@@ -100,3 +122,40 @@ header > h1 {
     font-size: 20px;
     margin-top: 30px;
 }
+
+.restart-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e25840;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .restart-btn i {
+    margin-right: 5px;
+  }
+
+
+.green-glow {
+    border: 6px solid #4dcc7d;
+    box-shadow: 0 0 10px #31b43a;
+}
+
+.red-glow {
+    border: 6px solid #fc121b;
+    box-shadow: 0 0 10px #d01115;
+}
+
+.gray-glow {
+    border: 6px solid #464647;
+    box-shadow: 0 0 10px #25292b;
+}
+
+
+
+

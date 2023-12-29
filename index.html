@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
 </head>
 <body>
     <header>
         <h1> Rock Paper Scissor </h1>
     </header>
+        <div class="score-limit">
+            <label for="score-select">Select Score Limit:</label>
+            <select id="score-select">
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+        </div>
         <div class="score-board">
             <div id="user-label" class="badge">user</div>
             <div id="computer-label" class="badge">comp</div>
@@ -36,6 +46,11 @@
         </div>
 
         <p id="action-message">Make your move</p>
-    
+        <button id="restart-button" class="restart-btn"><i class="fas fa-redo"></i> Restart Game</button>
+
+
+<script src="apps.js"></script> <!-- aq imitom rom javaskriptma srulad daacados htmls chatvirtva
+  an gamoviyenot DOMContentLoaded event
+-->
 </body>
 </html>
