@@ -11,33 +11,31 @@ const scoreSelect = document.getElementById("score-select");
 let scoreLimit = parseInt(scoreSelect.value);  // Camosashleli meniudan mighebuli ricxvi
 let gameIsOver = false; 
 
-
+// es funqcia randomulad irchevs 1-s 2-s an 3 da amis mixedvit varchevinebt qva, qaghaldi tu makrateli
 function getComputerChoice() {
   const choices = ['r', 'p', 's']
   const randomNumber = (Math.floor(Math.random() * 3)); // shemtxveviti ganawilebistvis 0 dan 2 is CaTvliT
   return choices[randomNumber]
 }
 
-function disableChoices() {
-  rock_div.removeEventListener('click', () => game("r"));
-  paper_div.removeEventListener('click', () => game("p"));
-  scissors_div.removeEventListener('click', () => game("s"));
-}
 
-
-
+// "result" paragrafshi rom gasagebad gamovitanot p r da s
 function convertToWord(letter) {  // am funqciit r,p da s gadadadian sityvebshi ekranze gamosachenad
   if (letter === "r") return "Rock";
   if (letter === "p") return "Paper";
   return "Scissors";
 }
 
+// satamasho zghvaris asarchevad. sadamdec listshi avirchevt iqamde iqneba aqac
 function updateScoreLimit() {
   scoreLimit = parseInt(scoreSelect.value);
 }
 
 scoreSelect.addEventListener('change', updateScoreLimit);
 
+
+// vamowmebt tu moviget an wavaget, result - iyineba, da archevanis sashualebas gvartmevs 
+// disableChoices() funqciit
 function checkWinner() {
   if (userScore === scoreLimit) {
     result_p.innerHTML = "You win!";
@@ -53,7 +51,8 @@ function checkWinner() {
     
   }
 }
-
+// tu moviget: jer mowmdeba ukve miaghwia zghvars tu ara,  angarishi izrdeba, resultis warwera iqmneba, 
+// ghilakebs sazghvrebi aenteba naxevari wamit
 function win(userChoice, computerChoice) {
   checkWinner();
   userScore++;
@@ -66,7 +65,7 @@ function win(userChoice, computerChoice) {
 
   
 }
-
+// igive oghond wagebisas (konkretulad ert wagebaze zogadad tamashis ara)
 function lose(userChoice, computerChoice) {
   checkWinner();
   computerScore++;
@@ -80,7 +79,7 @@ function lose(userChoice, computerChoice) {
 }
 
 
-
+// ki, ki, aqac igive oghond frea
 function draw(userChoice, computerChoice) {
   const userChoice_div = document.getElementById(userChoice);
   result_p.innerHTML = `${convertToWord(userChoice)} equals ${convertToWord(computerChoice)}. it's draw!`;
@@ -88,6 +87,7 @@ function draw(userChoice, computerChoice) {
   setTimeout(function() {document.getElementById(userChoice).classList.remove('gray-glow')}, 500);
 }
 
+// mtavari idea sadac dardeba mogebuli da waagebuli da bolos mowmdeba tamashi xom ar dasrulda
 function game(userChoice) {
   if (gameIsOver) return;
   const computerChoice = getComputerChoice();
@@ -118,6 +118,7 @@ function game(userChoice) {
 
 }
 
+// eventlistenerebs amatebs ghilakebze
 function main() {
   rock_div.addEventListener('click', () => game("r"));
   
@@ -128,10 +129,17 @@ function main() {
 
 main();
 
-
+// rodesac sachiro nishnulamde mivalt da an wavaget an moviet ghilakebs vtishavt 
+function disableChoices() {
+  rock_div.removeEventListener('click', () => game("r"));
+  paper_div.removeEventListener('click', () => game("p"));
+  scissors_div.removeEventListener('click', () => game("s"));
+}
 const restartButton = document.getElementById("restart-button");
 
-function resetScores() {  // es funqcia anulebs angarishs, da resutl winadadebasaac gaaqrobs
+
+// es funqcia anulebs angarishs, da resutl winadadebasaac gaaqrobs
+function resetScores() {  
   userScore = 0;
   computerScore = 0;
   userScore_span.innerHTML = userScore;
